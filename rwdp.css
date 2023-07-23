@@ -1,0 +1,53 @@
+.head{
+    font-size:36px;
+    background-color:#eeffff;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.desktop{
+    display: block;
+    text-align: center;
+}
+.mobile{
+    display: none;
+    text-align: center;
+}
+.frame{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.cat{
+    flex:none;
+    width:280px; 
+    background-color: #ffcccc;
+    margin: 10px;
+}
+@media(max-width:1000px) {
+    .frame{
+        flex-wrap: wrap;
+    }
+    .cat{
+        width:45%;
+    }
+    
+}
+@media(max-width:500px) {
+    .frame{
+        flex-wrap:wrap;
+    }
+    .head{
+        font-size: 20px;
+    }
+    .cat{
+        width:90%;
+    }
+    .desktop{
+        display: none;
+    }
+    .mobile{
+        display: block;
+    }
+    
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compitable" content="IE=edge">
+        <link rel="stylesheet" href="rwdp.css"/>
+       
+        <title>RURU 練習 RWD</title>
+    </head>
+    <body>
+        <div class="head">RURU的綜合練習</div>
+        <div class="desktop">我是一個清單唷</div>
+        <div class="mobile">
+            <img src="S2.jpg" width="50" height="50"/>
+        </div>
+        <div class="frame">
+            <div class="cat">咪寶</div>
+            <div class="cat">咪咕</div>
+            <div class="cat">黑糖</div>
+            <div class="cat">麵茶</div>
+        </div>
+        <button onclick="change()">AJAX取得連線資料</button>
+        <div id="box"></div>
+       <!--module模組測試
+        <script type="module" src="main2.js"></script> -->
+    
+
+        <script>
+            // AJXJ 網路連線
+            function change(){
+                fetch("https://cwpeng.github.io/live-records-samples/data/products.json").then(function(response){
+                    return response.json();
+                }).then(function(data){
+                    let result=document.querySelector("#box");
+                    result.innerHTML="";
+                    for(let i=0;i<data.length;i++){
+                        let product=data[i];
+                        result.innerHTML+="<div>名稱:"+product.name+',價錢:'+product.price+",性能:"+product.description+"</div>";
+                    };
+                });
+            }
+            //其餘運算...data
+            function add(n1,n2,...args){
+                let sum=n1+n2;
+                for(let i=0;i<args.length;i++){
+                    sum=sum+args[i];
+                }
+                console.log(sum);
+
+            }
+            add(3,4);
+            add(5,8,10);
+
+            //陣列的解構賦值
+            let b=[4,5,6];
+            [x,y,z]=b;
+            
+            //物件的解構賦值
+            let a={x:4,y:5};
+            ({x,y,z=10}=a);
+            
+            //統整函式的物件參數
+            function plus({n1,n2}){
+                console.log(n1+n2);
+            }
+            plus({n1:5,n2:7});
+            
+            //Proxy 代理物件
+            let data={
+                price:100,
+                count:5,
+            };
+            let proxy=new Proxy(data,{
+                get:function(data,property){
+                    if(property==="total"){
+                        return data.price*data.count;
+                    }else{
+                        return data[property];
+                    }
+                }
+            });
+            console.log("總價"+proxy.total);
+            console.log("單價"+proxy.price);
+             
+        </script>
+    </body>
+</html>
