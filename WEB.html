@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="WEB.css">
+        <title>My first pratice</title>
+    </head>
+    <body>
+        <header>
+            <h3>RB 一家四口的幸福貓生</h3>
+            <hr/>
+        </header>
+        <body>    
+            <div class="text">
+                <div 
+                onmouseover="move(this)" 
+                onmouseout="out(this)"
+                onclick="click2()"
+                class="style">咪寶
+            </div>
+                <div 
+                onmouseover="move(this)"
+                onmouseout="out(this)"
+                onclick="click1()" 
+                class="style">咪咕
+            </div>
+                <div 
+                onmouseover="move(this)"
+                onmouseout="out(this)"
+                onclick="click3()"
+                 class="style">黑糖
+                </div>
+                <div 
+                onmouseover="move(this)"
+                onmouseout="out(this)" 
+                onclick="click4()"
+                class="style">麵茶
+            </div>
+            </div>
+            <div class="frame">
+                <div class="showtime"></div>
+            </div>
+            <script>
+                function move(elem){
+                    elem.style.background="#ddaaaa";
+                }
+                function out(elem){
+                    elem.style.background="#ffcccc";
+                }
+                function click1(){
+                let img=document.querySelector('.showtime');
+                img.innerHTML='<img src="S1.jpg" width="30%" style="float:right">'
+
+                }
+                function click2(){
+                let img=document.querySelector('.showtime');
+                img.innerHTML='<img src="S2.jpg" width="30%">'
+                }
+                function click3(){
+                let img=document.querySelector('.showtime');
+                img.innerHTML='<img src="S3.jpg" width="30%">'
+                }
+                function click4(){
+                let img=document.querySelector('.showtime');
+                img.innerHTML='<img src="S4.jpg" width="30%">'
+                }
+
+            
+                
+            </script>
+        </body>
+        
+
+    </body>
+</html>
